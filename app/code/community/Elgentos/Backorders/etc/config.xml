@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Elgentos_Backorders>
+            <version>1.0.0</version>
+        </Elgentos_Backorders>
+    </modules>
+
+    <global>
+        <models>
+            <elgentos_backorders>
+                <class>Elgentos_Backorders_Model</class>
+                <resourceModel>elgentos_backorders_resource</resourceModel>
+            </elgentos_backorders>
+        </models>
+        <blocks>
+            <elgentos_backorders>
+                <class>Elgentos_Backorders_Block</class>
+            </elgentos_backorders>
+            <elgentos_backorders_adminhtml>
+                <class>Elgentos_Backorders_Block_Adminhtml</class>
+            </elgentos_backorders_adminhtml>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_grid>Elgentos_Backorders_Block_Grid</sales_order_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <elgentos_backorders>
+                <class>Elgentos_Backorders_Helper</class>
+            </elgentos_backorders>
+        </helpers>
+        <events>
+            <sales_order_grid_collection_load_before>
+                <observers>
+                    <elgentos_orderdispatch_extend_grid>
+                        <model>Elgentos_Backorders_Model_Observer</model>
+                        <method>salesOrderGridCollectionLoadBefore</method>
+                    </elgentos_orderdispatch_extend_grid>
+                </observers>
+            </sales_order_grid_collection_load_before>
+        </events>
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <elgentos_backorders>
+                    <file>elgentos_backorders.xml</file>
+                </elgentos_backorders>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <elgentos_backorders_admin>
+                <use>admin</use>
+                <args>
+                    <module>Elgentos_Backorders_Adminhtml</module>
+                    <frontName>backorders</frontName>
+                </args>
+            </elgentos_backorders_admin>
+        </routers>
+    </admin>
+
+</config>

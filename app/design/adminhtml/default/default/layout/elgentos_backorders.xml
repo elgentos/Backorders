@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<layout>
+    <sales_order_grid_update_handle>
+        <reference name="sales_order.grid">
+            <action method="addColumnAfter">
+                <columnId>items_shipped</columnId>
+                <arguments module="elgentos_backorders" translate="header">
+                    <header>Items shipped</header>
+                    <index>amount_shipped_of_total</index>
+                    <type>text</type>
+                </arguments>
+                <after>shipping_name</after>
+            </action>
+        </reference>
+    </sales_order_grid_update_handle>
+    <adminhtml_sales_order_grid>
+        <!-- apply layout handle defined above -->
+        <update handle="sales_order_grid_update_handle" />
+    </adminhtml_sales_order_grid>
+    <adminhtml_sales_order_index>
+        <!-- apply layout handle defined above -->
+        <update handle="sales_order_grid_update_handle" />
+    </adminhtml_sales_order_index>
+</layout>

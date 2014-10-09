@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+        <sales>
+            <children>
+                <elgentos_backorders translate="title" module="elgentos_backorders">
+                    <title>Backorders</title>
+                    <sort_order>75</sort_order>
+                    <depends>
+                        <module>Elgentos_Backorders</module>
+                    </depends>
+                    <action>backorders/index</action>
+                </elgentos_backorders>
+            </children>
+        </sales>
+    </menu>
+
+    <!-- Define ACL for access to these menu items. -->
+    <acl>
+        <resources>
+            <admin>
+                <sales>
+                    <children>
+                        <elgentos_backorders translate="title" module="elgentos_backorders">
+                            <title>Backorders</title>
+                            <sort_order>75</sort_order>
+                        </elgentos_backorders>
+                    </children>
+                </sales>
+            </admin>
+        </resources>
+    </acl>
+</config>
